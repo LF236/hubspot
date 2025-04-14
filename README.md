@@ -1,86 +1,147 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 📘 Documentación - Proyecto HubSpot
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este proyecto fue creado con el objetivo de desarrollar un CRUD que se comunique con la API de contactos de **HubSpot**.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🧠 Tecnologías Utilizadas
 
-## Description
+### Backend
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+El backend fue desarrollado con **NestJS**, elegido por su arquitectura limpia y totalmente alineada con los principios **SOLID** (controladores, servicios, modelos, entidades, DTO). Esto permitió un desarrollo rápido y eficiente del CRUD de contactos.
 
-## Project setup
+NestJS es un framework ligero, que instala únicamente las dependencias necesarias, sin sobrecargar el proyecto. Además, incluye un sistema de autenticación sencillo y rápido de implementar.
 
+### Frontend
+
+El frontend fue construido completamente con **Vanilla JS** y **Bootstrap**, cumpliendo con el requerimiento de mantener la interfaz simple. Se utilizó **Vite** como bundler para facilitar el desarrollo y la construcción del proyecto de forma ágil.
+
+---
+
+## 🚀 Introducción
+
+### 1. Clonar el repositorio
 ```bash
-$ yarn install
+git clone https://github.com/LF236/hubspot.git
 ```
 
-## Compile and run the project
-
+### 2. Acceder al directorio del proyecto
 ```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+cd hubspot
 ```
 
-## Run tests
-
+### 3. Instalar dependencias
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+yarn install
 ```
 
-## Resources
+### 4. Configurar variables de entorno
 
-Check out a few resources that may come in handy when working with NestJS:
+Copiar el archivo `.env.template` y crear uno nuevo llamado `.env`, luego completar con las siguientes variables:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+- `KEY_HUB`: Token de acceso para conectar a la API de HubSpot.
+- `JWT_SECRET`: Semilla utilizada para generar los tokens de autenticación.
 
-## Support
+### 5. Levantar el proyecto
+```bash
+yarn run start:dev
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 6. Ejecutar pruebas unitarias
 
-## Stay in touch
+Para correr las pruebas unitarias usando **Jest** (ya incluido en el proyecto):
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+yarn run test
+```
 
-## License
+---
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
-# hubspot
+## 🌐 Acceso a la Aplicación
+
+- URL principal: [http://localhost:3000/](http://localhost:3000/)
+- Usuario: `admin@admin.com`
+- Contraseña: `12345678`
+
+Una vez autenticado, se puede interactuar con el **dashboard**, que permite:
+
+- Agregar contactos
+- Listar contactos
+- Eliminar contactos
+- Actualizar contactos
+
+> Todos los endpoints están protegidos mediante JWT, el cual se genera al iniciar sesión.
+
+---
+
+## 🗂 Estructura del Proyecto
+
+- El frontend se encuentra dentro del directorio `front/`.
+- Ya incluye un build precompilado.
+- Sin embargo, si deseas volver a generar el build, puedes hacerlo de la siguiente manera:
+
+```bash
+cd front
+npm run build
+```
+
+Esto generará nuevamente el directorio `dist/`, listo para ser servido por el backend en NestJS.
+
+---
+
+## 📎 Anexos
+
+### 🧾 Endpoints del Backend
+
+#### 📁 Contactos
+
+- `GET /contacts`  
+  Listar todos los contactos.
+
+- `GET /contacts/{id}`  
+  Obtener información de un contacto por ID.
+
+- `GET /contacts/email/{email}`  
+  Buscar un contacto por correo electrónico.
+
+- `POST /contacts`  
+  Crear un nuevo contacto.  
+  **Ejemplo de body:**
+  ```json
+  {
+    "email": "fernandorodriguez2363@gmail.com",
+    "firstname": "Fernando",
+    "lastname": "Rodriguez",
+    "phone": "228 2821007656"
+  }
+  ```
+
+- `PATCH /contacts/{id}`  
+  Actualizar un contacto por ID. El body es el mismo que en el POST.
+
+- `DELETE /contacts/{id}`  
+  Eliminar un contacto por ID.
+
+> Todos los endpoints de contactos requieren el header:
+```http
+Authorization: Bearer <token generado en login>
+```
+
+#### 🔐 Autenticación
+
+- `POST /auth/login`  
+  Iniciar sesión.  
+  **Ejemplo de body:**
+  ```json
+  {
+    "email": "admin@admin.com",
+    "password": "12345678"
+  }
+  ```
+
+---
+
+
+## 📩 Contacto
+
+Para cualquier duda o sugerencia, puedes escribir a:
+
+**fernandocontacto236@gmail.com**

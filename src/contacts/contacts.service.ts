@@ -2,14 +2,15 @@ import { Injectable, InternalServerErrorException, Logger, NotFoundException } f
 import { CreateContactDto } from './dto/create-contact.dto';
 import { UpdateContactDto } from './dto/update-contact.dto';
 import { Contact } from './entities/contact.entity';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class ContactsService {
   protected apiKey: string;
   private readonly logger = new Logger(ContactsService.name);
 
-  constructor() {
-    this.apiKey = process.env.KEY_HUB || '';
+  constructor(private readonly configService: ConfigService) {
+    this.apiKey = this.configService.get<string>('KEY_HUB');
   }
 
   async create(createContactDto: CreateContactDto) : Promise<Contact> {
@@ -62,6 +63,7 @@ export class ContactsService {
       });
 
     } catch (error) {
+      console.log(error)
       return this.handleError(error, 'Error fetching contacts');
     }
   }
@@ -119,7 +121,6 @@ export class ContactsService {
   }
 
   async update(id: number, updateContactDto: UpdateContactDto) : Promise<Contact> {
-    console.log('updateContactDto', updateContactDto);
     try {
       const request = await fetch(
         `https://api.hubapi.com/crm/v3/objects/contacts/${id}`,
@@ -138,13 +139,11 @@ export class ContactsService {
         },
       );
 
-      console.log('request', request);
 
       if(request.status === 404) {
         throw new NotFoundException('Contact not found');
       }
       const response = await request.json();
-      console.log(response);
       const contact = Contact.createFromCreateRequest(response);
       return contact;
     } catch(err) {

@@ -1,17 +1,19 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ContactsModule } from './contacts/contacts.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     ContactsModule,
-    AuthModule
+    AuthModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..' ,'front', 'dist'),
+      exclude: ['/api*'],
+    })
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule { }

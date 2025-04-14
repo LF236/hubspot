@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.querySelector('#dashbord').innerHTML = `
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <a class="navbar-brand" href="#">MiApp</a>
+    <a class="navbar-brand" href="#">HubSpot</a>
     <div class="ms-auto">
       <button class="btn btn-success" id="botonAgregarUsuario">
         Agregar
@@ -134,7 +134,7 @@ document.querySelector('#dashbord').innerHTML = `
 
 const getUsers = async (token) => {
     try {
-        const request = await fetch('http://localhost:3000/contacts', {
+        const request = await fetch('/contacts', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -204,7 +204,7 @@ const getUsers = async (token) => {
         const email = document.querySelector('#email').value;
         const telefono = document.querySelector('#phone').value;
 
-        const request = await fetch('http://localhost:3000/contacts', {
+        const request = await fetch('/contacts', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -237,7 +237,7 @@ const getUsers = async (token) => {
     const getUserById = async (id) => {
         try {
             const token = localStorage.getItem('token_app');
-            const request = await fetch(`http://localhost:3000/contacts/${id}`, {
+            const request = await fetch(`/contacts/${id}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -283,7 +283,7 @@ const getUsers = async (token) => {
         const apellido = document.querySelector('#lastnameUpdate').value;
         const email = document.querySelector('#emailUpdate').value;
 
-        const request = await fetch(`http://localhost:3000/contacts/${selectedUserId}`, {
+        const request = await fetch(`/contacts/${selectedUserId}`, {
             method: 'PATCH',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -332,7 +332,7 @@ const getUsers = async (token) => {
         e.preventDefault();
 
         const token = localStorage.getItem('token_app');
-        const request = await fetch(`http://localhost:3000/contacts/${selectedUserId}`, {
+        const request = await fetch(`/contacts/${selectedUserId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`,

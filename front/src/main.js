@@ -65,7 +65,7 @@ const loginFunction = async (data) => {
    
     const {token} = response;
     localStorage.setItem('token_app', token);
-    window.location.href = '/dashboard';
+    window.location.href = '/dashboard.html';
   }
   catch(err) {
     console.log(err);
